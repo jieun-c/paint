@@ -15,6 +15,8 @@ ctx.fillRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
 ctx.strokeStyle = LINE_COLOR;
 ctx.lineWidth = LINE_WIDTH;
 
+//ctx.translate(50, 50)
+
 let painting = false;
 
 function stopPainting() {
