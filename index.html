@@ -10,12 +10,20 @@
     <link rel="stylesheet" href="canvas.css" />
   </head>
   <body>
-    <div class="container">
-      <img class="contract" src="sampleIMG.png" alt="contract" />
-      <canvas class="canvas" id="canvas">
-        CANVAS를 지원하지 않는 브라우저 입니다.
-      </canvas>
-      <button class="saveBtn" id="saveBtn">저장</button>
+    <div class="container" id="container">
+      <img class="contract" src="http://placehold.it/700X800" alt="contract" />
+
+      <div class="signBox">
+        <canvas class="canvas" id="canvas">
+          CANVAS를 지원하지 않는 브라우저 입니다.
+        </canvas>
+        <div class="btnBox">
+          <button class="resetBtn" id="resetBtn">다시</button>
+          <button class="saveBtn" id="saveBtn">저장</button>
+        </div>
+      </div>
+      <!-- /signBox -->
     </div>
+    <!-- /container -->
   </body>
 </html>

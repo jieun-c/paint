@@ -45,6 +45,8 @@ function onMoveTouch(event) {
   const y =
     event.changedTouches[0].pageY - event.changedTouches[0].target.offsetTop;
 
+  console.log(x, y);
+
   if (painting === false) {
     ctx.beginPath();
     ctx.moveTo(x, y);
