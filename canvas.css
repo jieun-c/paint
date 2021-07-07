@@ -20,17 +20,43 @@ body {
   width: 100%;
 }
 
+.signBox {
+  position: absolute;
+  /* top: 500px;
+  left: 10px; */
+}
+
+.h1 {
+  padding-bottom: 10px;
+  font-size: 0.9rem;
+}
+
 /* 서명란 */
 .canvas {
-  border: 3px solid black;
   position: relative;
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px gray;
+  margin: 5px 0;
+}
+
+/* (계약자) 이름을 입력하세요 */
+.imgName {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 100%;
+  height: 50px;
+  font-size: 1rem;
 }
 
 /* 버튼 */
+.btnBox {
+  display: flex;
+  justify-content: space-between;
+}
 .btnBox > button {
-  width: 100px;
+  width: 49%;
   height: 40px;
   cursor: pointer;
-
-  position: relative;
+  border: 1px solid black;
 }

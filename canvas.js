@@ -1,5 +1,7 @@
 const canvas = document.getElementById("canvas");
+const name = document.getElementById("imgName");
 const saveBtn = document.getElementById("saveBtn");
+const resetBtn = document.getElementById("resetBtn");
 const ctx = canvas.getContext("2d");
 
 const CANVAS_SIZE_X = 240;
@@ -11,16 +13,15 @@ const LINE_WIDTH = 2.5;
 canvas.width = CANVAS_SIZE_X;
 canvas.height = CANVAS_SIZE_Y;
 ctx.fillStyle = CANVAS_BG;
-ctx.fillRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
 ctx.strokeStyle = LINE_COLOR;
 ctx.lineWidth = LINE_WIDTH;
 
-//ctx.translate(50, 50)
-
 let painting = false;
+ctx.fillRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
 
 function stopPainting() {
   painting = false;
+  ctx.beginPath();
 }
 
 function startPainting() {
@@ -43,9 +44,9 @@ function onMoveClick(event) {
 function onMoveTouch(event) {
   event.preventDefault();
   const x =
-    event.changedTouches[0].pageX - event.changedTouches[0].target.offsetLeft;
+    event.changedTouches[0].clientX - event.changedTouches[0].target.offsetLeft;
   const y =
-    event.changedTouches[0].pageY - event.changedTouches[0].target.offsetTop;
+    event.changedTouches[0].clientY - event.changedTouches[0].target.offsetTop;
 
   console.log(x, y);
 
@@ -62,20 +63,30 @@ function handleCM(event) {
   event.preventDefault();
 }
 
-function handleSaveClick() {
+function handleSave() {
   const imageURL = canvas.toDataURL();
   const a = document.createElement("a");
+  const imgName = document.getElementById("imgName").value;
 
   a.href = imageURL;
-  a.download = "서명";
+  imgName ? (a.download = imgName) : (a.download = "❌");
   a.click();
+}
+
+function handleKey(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+  }
+}
+
+function handleReset() {
+  ctx.fillRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
 }
 
 if (canvas) {
   canvas.addEventListener("mousemove", onMoveClick);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
-  canvas.addEventListener("mouseleave", stopPainting);
   canvas.addEventListener("contextmenu", handleCM);
 
   canvas.addEventListener("touchmove", onMoveTouch);
@@ -83,10 +94,16 @@ if (canvas) {
   canvas.addEventListener("touchend", stopPainting);
 }
 
-if (saveBtn) {
-  saveBtn.addEventListener("click", handleSaveClick);
+if (name) {
+  name.addEventListener("keydown", handleKey);
 }
 
-// 1. 터치이벤트 구현하기
-// 2. 스크롤막기
-// 3. 이미지 저장 이름은 input 으로 받기?
+if (saveBtn) {
+  saveBtn.addEventListener("click", handleSave);
+}
+
+if (resetBtn) {
+  resetBtn.addEventListener("click", handleReset);
+}
+
+//  터치이벤트 구현하기

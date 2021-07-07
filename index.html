@@ -11,16 +11,26 @@
   </head>
   <body>
     <div class="container" id="container">
-      <img class="contract" src="http://placehold.it/700X800" alt="contract" />
+      <img class="contract" src="sampleIMG.png" alt="contract" />
 
       <div class="signBox">
-        <canvas class="canvas" id="canvas">
-          CANVAS를 지원하지 않는 브라우저 입니다.
-        </canvas>
-        <div class="btnBox">
-          <button class="resetBtn" id="resetBtn">다시</button>
-          <button class="saveBtn" id="saveBtn">저장</button>
-        </div>
+        <h1 class="h1">서명을 통해 위 내용을 동의합니다.</h1>
+        <form>
+          <input
+            class="imgName"
+            id="imgName"
+            type="text"
+            placeholder="(계약자) 이름을 입력하세요"
+          />
+          <canvas class="canvas" id="canvas">
+            CANVAS를 지원하지 않는 브라우저 입니다.
+          </canvas>
+
+          <div class="btnBox">
+            <button type="reset" class="resetBtn" id="resetBtn">Reset</button>
+            <button type="submit" class="saveBtn" id="saveBtn">Save</button>
+          </div>
+        </form>
       </div>
       <!-- /signBox -->
     </div>
