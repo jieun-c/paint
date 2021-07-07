@@ -14,7 +14,7 @@ body {
 
 /* 계약서 이미지 */
 .contract {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -22,8 +22,8 @@ body {
 
 .signBox {
   position: absolute;
-  /* top: 500px;
-  left: 10px; */
+  bottom: 20px;
+  left: 10px;
 }
 
 .h1 {

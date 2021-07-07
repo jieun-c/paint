@@ -1,3 +1,4 @@
+const container = document.getElementById("container");
 const canvas = document.getElementById("canvas");
 const name = document.getElementById("imgName");
 const saveBtn = document.getElementById("saveBtn");
@@ -43,11 +44,8 @@ function onMoveClick(event) {
 
 function onMoveTouch(event) {
   event.preventDefault();
-  const x =
-    event.changedTouches[0].clientX - event.changedTouches[0].target.offsetLeft;
-  const y =
-    event.changedTouches[0].clientY - event.changedTouches[0].target.offsetTop;
-
+  const x = event.changedTouches[0].pageX - canvas.getBoundingClientRect().left;
+  const y = event.changedTouches[0].pageY - canvas.getBoundingClientRect().top;
   console.log(x, y);
 
   if (painting === false) {
