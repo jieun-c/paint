@@ -46,7 +46,6 @@ function onMoveTouch(event) {
   event.preventDefault();
   const x = event.changedTouches[0].pageX - canvas.getBoundingClientRect().left;
   const y = event.changedTouches[0].pageY - canvas.getBoundingClientRect().top;
-  console.log(x, y);
 
   if (painting === false) {
     ctx.beginPath();
@@ -103,5 +102,3 @@ if (saveBtn) {
 if (resetBtn) {
   resetBtn.addEventListener("click", handleReset);
 }
-
-//  터치이벤트 구현하기
